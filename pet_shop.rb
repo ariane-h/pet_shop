@@ -34,33 +34,11 @@ end
 def pets_by_breed(shop, breed)
   all_pet_breeds = []
   shop[:pets].map { |pet| all_pet_breeds.push(pet[:breed]) }
-  matching_breeds = all_pet_breeds.select {|type| type == breed }
+  all_pet_breeds.select {|type| type == breed }
 end
 
-=begin
-find how many pets there are by breed
-
-list each the breed of each pet
-check if the breed matches the breed we're looking for
-count how many times we find it
-
-start
-
+# 8 - find by pet name
+def find_pet_by_name(shop, name)
+  all_pets = shop[:pets]
+  all_pets.find {|pet| pet[:name] == name }
 end
-
-=end
-
-
-#
-# breed_array = []
-# breed_number = breed_array.select { |pet| pet[:breed] == breed }.any?
-
-
-# pet_breeds = pets.map { |pet| pet[:breed] }
-# pet_breeds.include 'breed' ?
-
-# how_many = shop[:pets][:breed].select {|type| type === breed }
-# return how_many.count
-
-  # if (shop[:pets][:breed]) == breed
-  # end
