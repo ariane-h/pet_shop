@@ -163,11 +163,13 @@ class TestPetShop < Minitest::Test
     assert_equal(7, count)
   end
 
+# rel to function 11
   def test_customer_cash
     cash = customer_cash(@customers[0])
     assert_equal(1000, cash)
   end
 
+# rel to function 12
   def test_remove_customer_cash
     customer = @customers[0]
     remove_customer_cash(customer, 100)
