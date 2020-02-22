@@ -38,7 +38,15 @@ def pets_by_breed(shop, breed)
 end
 
 # 8 - find by pet name
+
 def find_pet_by_name(shop, name)
   all_pets = shop[:pets]
   all_pets.find {|pet| pet[:name] == name }
+end
+
+# 9 - remove pet by names
+
+#type one
+def remove_pet_by_name(shop, name)
+  shop[:pets].delete_if {|pet| pet[:name] == name }
 end
