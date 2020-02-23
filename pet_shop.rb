@@ -72,3 +72,30 @@ end
 def add_pet_to_customer(customer, new_pet)
   customer[:pets].push(new_pet)
 end
+
+# optional
+
+# 15 - customer can afford pet
+
+def customer_can_afford_pet(customer, new_pet)
+  #customer money
+  customer[:cash] >= 100
+
+  #to find all pet prices
+  # @pet_shop[:pets].map {|pet| pet[:price]}
+end
+
+# 16 - sell pet to customer
+def sell_pet_to_customer(shop, pet, customer)
+  # increase the number of pets the customer has
+  add_pet_to_customer(customer, pet)
+  # increase the number of pets the shop has sold
+  increase_pets_sold(shop, 1)
+
+  #
+  cash = pet[:price]
+  remove_customer_cash(customer, cash)
+
+  add_or_remove_cash(shop, cash)
+
+end
