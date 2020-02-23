@@ -73,13 +73,9 @@ end
 # optional
 
 # 15 - customer can afford pet
-
 def customer_can_afford_pet(customer, new_pet)
   customer[:cash] >= 100
 end
-
-#to find all pet prices
-# @pet_shop[:pets].map {|pet| pet[:price]}
 
 # 16 - sell pet to customer
 def sell_pet_to_customer(shop, pet, customer)
