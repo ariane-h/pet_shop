@@ -88,14 +88,13 @@ end
 
 # 16 - sell pet to customer
 def sell_pet_to_customer(shop, pet, customer)
-  if pet == nil
+  if pet == nil || customer[:cash] < pet[:price]
     return nil
   else
     # increase the number of pets the customer has
     add_pet_to_customer(customer, pet)
     # increase the number of pets the shop has sold
     increase_pets_sold(shop)
-
     # remove the price of the pet from the customer's cash
     cash = pet[:price]
     remove_customer_cash(customer, cash)
