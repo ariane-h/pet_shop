@@ -31,16 +31,21 @@ def stock_count(shop)
 end
 
 # 7 - number of pets by breed
+# def pets_by_breed(shop, breed)
+#   all_pet_breeds = []
+#   shop[:pets].map { |pet| all_pet_breeds.push(pet[:breed]) }
+#   all_pet_breeds.select {|type| type == breed }
+# end
+
+#7 - number of pets by breed refactored
 def pets_by_breed(shop, breed)
-  all_pet_breeds = []
-  shop[:pets].map { |pet| all_pet_breeds.push(pet[:breed]) }
-  all_pet_breeds.select {|type| type == breed }
+  shop[:pets].map.select {|pet| (pet[:breed] == breed)}
 end
 
 # 8 - find by pet name
 def find_pet_by_name(shop, name)
   all_pets = shop[:pets]
-  pet_name_match = all_pets.find {|pet| pet[:name] == name }
+  all_pets.find {|pet| pet[:name] == name }
 end
 
 # 9 - remove pet by names
@@ -78,13 +83,11 @@ end
 # 15 - customer can afford pet
 
 def customer_can_afford_pet(customer, new_pet)
-  #customer money
   customer[:cash] >= 100
-
-  #to find all pet prices
-  # @pet_shop[:pets].map {|pet| pet[:price]}
 end
 
+#to find all pet prices
+# @pet_shop[:pets].map {|pet| pet[:price]}
 
 # 16 - sell pet to customer
 def sell_pet_to_customer(shop, pet, customer)
