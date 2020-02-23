@@ -21,7 +21,7 @@ def pets_sold(shop)
 end
 
 # 5 - increase pets sold
-def increase_pets_sold(shop, amount)
+def increase_pets_sold(shop, amount= 1)
   shop[:admin][:pets_sold] += amount
 end
 
@@ -40,7 +40,7 @@ end
 # 8 - find by pet name
 def find_pet_by_name(shop, name)
   all_pets = shop[:pets]
-  all_pets.find {|pet| pet[:name] == name }
+  pet_name_match = all_pets.find {|pet| pet[:name] == name }
 end
 
 # 9 - remove pet by names
@@ -85,17 +85,22 @@ def customer_can_afford_pet(customer, new_pet)
   # @pet_shop[:pets].map {|pet| pet[:price]}
 end
 
+
 # 16 - sell pet to customer
 def sell_pet_to_customer(shop, pet, customer)
-  # increase the number of pets the customer has
-  add_pet_to_customer(customer, pet)
-  # increase the number of pets the shop has sold
-  increase_pets_sold(shop, 1)
+  if pet == nil
+    return nil
+  else
+    # increase the number of pets the customer has
+    add_pet_to_customer(customer, pet)
+    # increase the number of pets the shop has sold
+    increase_pets_sold(shop)
 
-  #
-  cash = pet[:price]
-  remove_customer_cash(customer, cash)
-
-  add_or_remove_cash(shop, cash)
+    # remove the price of the pet from the customer's cash
+    cash = pet[:price]
+    remove_customer_cash(customer, cash)
+    #add or remove the cash from the shop till
+    add_or_remove_cash(shop, cash)
+  end
 
 end
