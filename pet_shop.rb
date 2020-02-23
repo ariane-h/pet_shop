@@ -31,24 +31,11 @@ def stock_count(shop)
 end
 
 # 7 - type one, number of pets by breed
-# def pets_by_breed(shop, breed)
-#   all_pet_breeds = []
-#   shop[:pets].map { |pet| all_pet_breeds.push(pet[:breed]) }
-#   all_pet_breeds.select {|type| type == breed }
-# end
-
-#7 - type two, number of pets by breed refactored
 def pets_by_breed(shop, breed)
   shop[:pets].map.select {|pet| (pet[:breed] == breed)}
 end
 
-# 8 - type one, find by pet name
-# def find_pet_by_name(shop, name)
-#   all_pets = shop[:pets]
-#   all_pets.find {|pet| pet[:name] == name }
-# end
-
-# 8 - type two, find by pet name refactored
+# 8 - type one, find by pet name refactored
 def find_pet_by_name(shop, name)
   shop[:pets].find {|pet| pet[:name] == name}
 end
