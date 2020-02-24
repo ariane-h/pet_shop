@@ -79,8 +79,7 @@ end
 
 # 16 - sell pet to customer
 def sell_pet_to_customer(shop, pet, customer)
-  if pet == nil || customer[:cash] < pet[:price]
-    return nil
+  if pet.nil? || customer[:cash] < pet[:price]
   else
     # increase the number of pets the customer has
     add_pet_to_customer(customer, pet)
