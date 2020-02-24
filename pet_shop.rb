@@ -91,5 +91,4 @@ def sell_pet_to_customer(shop, pet, customer)
     #add or remove the cash from the shop till
     add_or_remove_cash(shop, cash)
   end
-
 end
